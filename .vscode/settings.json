@@ -49,5 +49,7 @@
     "customizer",
     "iconify",
     "tanstack"
-  ]
+  ],
+  "WillLuke.nextjs.addTypesOnSave": true,
+  "WillLuke.nextjs.hasPrompted": true
 }

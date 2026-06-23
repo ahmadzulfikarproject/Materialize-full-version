@@ -1,0 +1,33 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: next-frontend-full-dev
+    ports:
+      - "3000:3000"
+
+    environment:
+      NODE_ENV: development
+
+    volumes:
+      # Mount seluruh project
+      - .:/app
+
+      # Jangan overwrite node_modules di container
+      - /app/node_modules
+
+      # Cache Next.js tetap di dalam container
+      - /app/.next
+
+    restart: unless-stopped
+
+    stdin_open: true
+    tty: true
+
+    networks:
+      - enterprise-network
+
+networks:
+  enterprise-network:
+    external: true
